@@ -3,5 +3,8 @@
 {% block title %}- Annonces{% endblock %}
 
 {% block body %}
-    turbo patate
+    {% for products as product %}
+        turbo patate
+        {product.name}
+    {% endfor %}
 {% endblock %}
