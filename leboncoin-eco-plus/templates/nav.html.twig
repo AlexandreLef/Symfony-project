@@ -1,32 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">My e-shop</a>
-
         {#        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" #}
         {#                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" #}
         {#                aria-expanded="false" aria-label="Toggle navigation"> #}
         {#            <span class="navbar-toggler-icon"></span> #}
         {#        </button> #}
         {#        <div class="collapse navbar-collapse" id="navbarSupportedContent"> #}
+        <div class="d-flex">
+            <a class="navbar-brand me-2" href="/">Leboncoin Éco+</a>
+            <button class="btn btn-outline-info me-2" type="submit">Déposer une annonce</button>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
+        </div>
         <div class="navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {% if (app.request.attributes.get('_route') == 'index') %}
-                     active {% endif %}" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
+                    <i class="bi bi-heart"></i>
                     <a class="nav-link {% if (
-                        app.request.attributes.get('_route') == 'categories' or
-                        app.request.attributes.get('_route') == 'productsByCategory'
+                        app.request.attributes.get('_route') == 'favoris'
                         ) %} active {% endif %}"
-                       href="/categories">Categories</a>
+                       href="/favorites">Favoris</a>
                 </li>
                 <li class="nav-item">
+                    <i class="bi bi-chat-right-text"></i>
                     <a class="nav-link {% if (
-                        app.request.attributes.get('_route') == 'products' or
-                        app.request.attributes.get('_route') == 'product' or
-                        app.request.attributes.get('_route') == 'productById'
-                        ) %} active {% endif %}" href="/products">Products</a>
+                        app.request.attributes.get('_route') == 'messages'
+                        ) %} active {% endif %}" href="/products">Messages</a>
                 </li>
                 {% if (is_granted('ROLE_ADMIN')) %}
                     <li class="nav-item {% if app.request.attributes.get('_route') == 'admin' %}
@@ -34,27 +35,17 @@
                         <a class="nav-link" href="/admin">Admin</a>
                     </li>
                 {% endif %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                       aria-expanded="false"><i class="bi bi-person-fill"></i></a>
-                    <ul class="dropdown-menu">
-                        {% if is_granted('ROLE_USER') %}
-                            <li><a class="dropdown-item" href="{{ path('logout') }}">Déconnexion</a></li>
-                        {% else %}
-                            <li><a class="dropdown-item" href="{{ path('login') }}">Connexion</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cart">
-                        <i class="bi bi-cart"></i>
-                    </a>
-                </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{user.username}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <i class="bi bi-person"></i>
+                        <a class="nav-link" href="#">Se connecter</a>
+                    </li>
+                {% endif %}
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>
