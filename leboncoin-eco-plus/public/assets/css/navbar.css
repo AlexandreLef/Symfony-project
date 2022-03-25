@@ -40,6 +40,8 @@
    padding-left: 10px;
    padding-right: 10px;
    padding-bottom: 3px;
+   text-decoration: none;
+   color: black;
 
    background-image: linear-gradient(var(--primary-color), var(--primary-color)), linear-gradient(white, white);
    background-size: 0 3px, auto;
@@ -50,6 +52,7 @@
 
 .nav-button:hover {
    background-size: 100% 3px, auto;
+   color: var(--primary-color);
 }
 
 .nav-button > i {

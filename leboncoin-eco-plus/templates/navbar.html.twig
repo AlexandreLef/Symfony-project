@@ -9,10 +9,10 @@
         <div class="nav-left">
             <a href="{{ path('home') }}"><img class="nav-logo" src="/assets/img/logo.svg"/></a>
             <button class="btn btn-outline-primary" type="submit"><i class="bi bi-plus-square"></i> Déposer une annonce</button>
-            <div class="nav-button search-button">
+            <a class="nav-button search-button" href="{{ path('product_list') }}">
                 <i class="bi bi-search"></i>
                 <p>&nbsp;Rechercher</p>
-            </div>
+            </a>
         </div>
         <div class="nav-buttons">
             <a class="nav-button" href="{{ path('favorite') }}">
