@@ -1,0 +1,36 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+{% endblock %}
+
+
+
+<nav class="custom-nav shadow">
+        <div class="nav-left">
+            <a href="/">Leboncoin Éco+</a>
+            <button class="btn btn-outline-primary" type="submit"><i class="bi bi-plus-square"></i> Déposer une annonce</button>
+            <div class="nav-button search-button">
+                <i class="bi bi-search"></i>
+                <p>Rechercher</p>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <div class="nav-button">
+                <i class="bi bi-heart"></i>
+                <p>Favoris</p>
+            </div>
+            <div class="nav-button">
+                <i class="bi bi-chat-right-text"></i>
+                <p>Messages</p>
+            </div>
+            {% if is_granted('ROLE_USER') %}
+                <div class="nav-button">
+                    <p class="nav-link">{user.username}</p>
+                </div>
+            {% else %}
+                <div class="nav-button">
+                    <i class="bi bi-person"></i>
+                    <p>Se connecter</p>
+                </div>
+            {% endif %}
+        </div>
+</nav>
