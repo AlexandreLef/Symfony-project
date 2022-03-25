@@ -13,8 +13,6 @@ RUN docker-php-ext-install pdo mysqli pdo_mysql zip;
 RUN wget https://getcomposer.org/download/2.0.9/composer.phar \
     && mv composer.phar /usr/bin/composer && chmod +x /usr/bin/composer
 
-RUN composer install
-
 COPY apache.conf /etc/apache2/sites-enabled/000-default.conf
 
 WORKDIR /var/www
