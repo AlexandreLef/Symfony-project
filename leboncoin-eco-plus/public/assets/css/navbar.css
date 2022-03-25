@@ -1,7 +1,13 @@
 .custom-nav {
-   display: flex;
    background-color: white;
    height: 60px;
+}
+
+.nav-autoresize {
+   max-width: 1000px;
+   display: flex;
+   height: inherit;
+   margin: auto;
 }
 
 .nav-left {
@@ -21,7 +27,8 @@
 
 .nav-button {
    display: flex;
-   width: 100px;
+   width: max-content;
+   width: -moz-max-content;
    flex-direction: column;
    justify-content: center;
    align-items: center;
