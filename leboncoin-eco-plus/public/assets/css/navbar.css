@@ -20,6 +20,10 @@
    margin-left: 15px;
 }
 
+.nav-logo {
+   height: 60px;
+}
+
 .nav-buttons {
    display: flex;
    margin-left: auto;
@@ -62,4 +66,9 @@
    height: 100%;
    flex-direction: row;
    justify-content: space-around;
+   font-size: 1.0em;
+}
+
+.search-button > p {
+   font-size: 1.2em;
 }
