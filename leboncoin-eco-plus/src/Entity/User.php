@@ -26,6 +26,21 @@ class User
     #[ORM\Column(type: 'string', length: 255)]
     private string $password;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $username;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $address;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $zipcode;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $state;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $roles;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +90,66 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?int
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(?int $zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(?string $state): self
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(string $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }

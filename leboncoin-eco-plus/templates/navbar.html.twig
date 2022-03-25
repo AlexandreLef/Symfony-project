@@ -7,7 +7,7 @@
 <nav class="custom-nav shadow">
     <div class="nav-autoresize">
         <div class="nav-left">
-            <img class="nav-logo" src="/assets/img/logo.svg"/>
+            <a href="{{ path('home') }}"><img class="nav-logo" src="/assets/img/logo.svg"/></a>
             <button class="btn btn-outline-primary" type="submit"><i class="bi bi-plus-square"></i> Déposer une annonce</button>
             <div class="nav-button search-button">
                 <i class="bi bi-search"></i>
@@ -15,23 +15,23 @@
             </div>
         </div>
         <div class="nav-buttons">
-            <div class="nav-button">
+            <a class="nav-button" href="{{ path('favorite') }}">
                 <i class="bi bi-heart"></i>
                 <p>Favoris</p>
-            </div>
-            <div class="nav-button">
+            </a>
+            <a class="nav-button" href="{{ path('message') }}">
                 <i class="bi bi-chat-right-text"></i>
                 <p>Messages</p>
-            </div>
+            </a>
             {% if is_granted('ROLE_USER') %}
                 <div class="nav-button">
                     <p class="nav-link">{user.username}</p>
                 </div>
             {% else %}
-                <div class="nav-button">
+                <a class="nav-button" href="{{ path('account_login') }}">
                     <i class="bi bi-person"></i>
                     <p>Se connecter</p>
-                </div>
+                </a>
             {% endif %}
         </div>
     </div>
